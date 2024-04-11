@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { fetchImages } from "./api"
+
 // Headerのコンポーネント
 function Header() {
     return (
@@ -50,7 +53,13 @@ function Gallery(props) {
 
 function Main() {
     const urls = null;
-
+    useEffect( () => {
+        fetchImages("shiba").then((urls) => {
+            console.log(urls);
+        });
+        },
+        []
+    );
     return (
         <main>
             <section className="section">
